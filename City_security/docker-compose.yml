@@ -1,0 +1,30 @@
+services:
+  app:
+    build: .
+    container_name: City_security
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/db_security
+      SPRING_DATASOURCE_USERNAME: postgresSecurity
+      SPRING_DATASOURCE_PASSWORD: capasproyecto
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+    ports:
+      - "8080:8080"
+
+  db:
+    image: postgres:latest
+    container_name: postgres
+    environment:
+      POSTGRES_DB: db_security
+      POSTGRES_USER: postgresSecurity
+      POSTGRES_PASSWORD: capasproyecto
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+
+
+volumes:
+  postgres_data:

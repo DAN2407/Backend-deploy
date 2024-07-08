@@ -1,0 +1,25 @@
+spring:
+  sql:
+    init:
+      data:
+  application:
+    name: City_security
+  mustache:
+    suffix: .html
+  datasource:
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: ${SPRING_JPA_HIBERNATE_DDL_AUTO}
+      format_sql: true
+    properties:
+      hibernate:
+        globally_quoted_identifiers: true
+    show-sql: true
+
+
+jwt:
+  secret: "94c9b14f-b497-4f25-bc02-4f5e1a512c3d"
+  exptime: 1296000000
